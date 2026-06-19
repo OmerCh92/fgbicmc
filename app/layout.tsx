@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Federal Government Educational Institutions (C/G) Mardan Cantt, KP',
 };
 
-export const viewport: Viewport = {
+export const viewport = {
   themeColor: '#18813c',
 };
 
