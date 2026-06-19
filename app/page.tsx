@@ -1,65 +1,91 @@
-import Image from "next/image";
+import Link from 'next/link';
 
 export default function Home() {
+  // Mock data for static export
+  const announcements = [
+    { id: 1, title: 'Merit List 2026 Published', excerpt: 'The first merit list for the 2026 pre-medical and pre-engineering batches is now available...', category: 'Notice', slug: 'merit-list-2026' },
+    { id: 2, title: 'Summer Vacations Schedule', excerpt: 'Please be informed that the college will observe summer vacations starting from...', category: 'Schedule', slug: 'summer-vacations' },
+    { id: 3, title: 'Sports Week 2026 Winners', excerpt: 'Congratulations to Jinnah House for securing the first position in the annual sports...', category: 'News', slug: 'sports-week-winners' },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      {/* Hero Section */}
+      <section className="bg-green-800 py-16 text-white text-center px-4 relative overflow-hidden">
+        <div className="relative z-10">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">
+            Admissions Open 2026
+          </h2>
+          <p className="text-xl text-green-100 max-w-2xl mx-auto mb-8 font-light">
+            Join the prestigious FG Boys Inter College Mardan. Excellence in Education, Discipline in Life.
           </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="#apply" className="bg-white text-green-900 px-8 py-3 rounded font-bold shadow-xl hover:bg-gray-100 transition">
+              Apply Online (1st Year)
+            </Link>
+            <a href="/prospectus.pdf" target="_blank" className="border border-white/50 px-8 py-3 rounded font-bold hover:bg-white/10 transition">
+              Download Prospectus
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Latest Announcements */}
+      <section id="news" className="max-w-7xl mx-auto py-16 px-6">
+        <div className="border-l-4 border-green-700 pl-4 mb-10">
+          <h3 className="text-3xl font-black text-gray-900 uppercase">Latest Announcements</h3>
+          <p className="text-gray-500 italic">Updated: {new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' })}</p>
         </div>
-      </main>
-    </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {announcements.map((post) => (
+            <div key={post.id} className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:border-green-300 transition flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold text-green-800 bg-green-100 px-2 py-1 rounded">
+                  {post.category}
+                </span>
+                <h4 className="font-bold text-lg mt-3">{post.title}</h4>
+                <p className="text-gray-600 text-sm mt-2">{post.excerpt}</p>
+              </div>
+              <Link href={`/posts/${post.slug}`} className="text-green-700 text-sm font-bold mt-4 inline-block hover:underline">
+                Read Full Notice &rarr;
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Candidate Registration */}
+      <section id="apply" className="bg-gray-100 py-20 px-6">
+        <div className="max-w-6xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden grid md:grid-cols-5">
+          {/* Left Info Column */}
+          <div className="md:col-span-2 bg-green-900 p-10 text-white">
+            <h3 className="text-2xl font-bold mb-6">Candidate Registration</h3>
+            <ul className="space-y-6 text-sm opacity-90">
+              <li><strong className="block text-green-400">Step 1:</strong> Fill the online form with correct Matric marks.</li>
+              <li><strong className="block text-green-400">Step 2:</strong> Upload CNIC/B-Form and Result Card.</li>
+              <li><strong className="block text-green-400">Step 3:</strong> Visit campus for interview after Merit List.</li>
+            </ul>
+            <div className="mt-12 pt-8 border-t border-green-700">
+              <p className="text-xs uppercase tracking-widest text-green-400 font-bold mb-2">Queries?</p>
+              <p className="text-sm">Contact Admissions: 0937-867788</p>
+            </div>
+          </div>
+          
+          {/* Right Form Column */}
+          <div className="md:col-span-3 p-0 md:p-10 flex flex-col justify-center w-full bg-white">
+            <div className="w-full overflow-hidden rounded-lg">
+              <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSc7lxY8yW7ZrLEU-HSQHfMqUnNM9ZjL9FNoTD3sRSt9F2a3mw/viewform?embedded=true" 
+                className="w-full h-[800px] border-0"
+                title="Registration Form"
+              >
+                Loading…
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
