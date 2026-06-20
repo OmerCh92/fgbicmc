@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Home() {
   // Mock data for static export
   const announcements = [
-    { id: 1, title: 'Merit List 2026 Published', excerpt: 'The first merit list for the 2026 pre-medical and pre-engineering batches is now available...', category: 'Notice', slug: 'merit-list-2026' },
+    { id: 1, title: 'Strict action against indiscipline', excerpt: 'The college administration has decided to take strict action against any form of indiscipline...', category: 'Notice', slug: 'strict-action-indiscipline' },
     { id: 2, title: 'Summer Vacations Schedule', excerpt: 'Please be informed that the college will observe summer vacations starting from...', category: 'Schedule', slug: 'summer-vacations' },
     { id: 3, title: 'Sports Week 2026 Winners', excerpt: 'Congratulations to Jinnah House for securing the first position in the annual sports...', category: 'News', slug: 'sports-week-winners' },
   ];
@@ -23,7 +23,7 @@ export default function Home() {
             <Link href="#apply" className="bg-white text-green-900 px-8 py-3 rounded font-bold shadow-xl hover:bg-gray-100 transition">
               Apply Online (1st Year)
             </Link>
-            <a href="/prospectus.pdf" target="_blank" className="border border-white/50 px-8 py-3 rounded font-bold hover:bg-white/10 transition">
+            <a href="https://drive.google.com/file/d/1SjCoROZk5RyPOCL8TE4pvmLLrrorLvMK/view" target="_blank" className="border border-white/50 px-8 py-3 rounded font-bold hover:bg-white/10 transition">
               Download Prospectus
             </a>
           </div>
