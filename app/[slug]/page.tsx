@@ -1,32 +1,7 @@
-import { notFound } from 'next/navigation';
-
-// Make sure every <Link> in your app has a corresponding slug here!
-const pages = [
-  { 
-    slug: 'about', // Matches <Link href="/about">
-    title: 'About Us', 
-    content: '<p>Welcome to FG Boys Inter College Mardan. We are dedicated to excellence in education and discipline.</p>' 
-  },
-  { 
-    slug: 'faculty-staff', // Matches <Link href="/faculty-staff">
-    title: 'Faculty & Staff', 
-    content: '<p>Meet our dedicated teaching and administrative staff.</p>' 
-  },
-  { 
-    slug: 'contact', // Matches <Link href="/contact">
-    title: 'Contact Us', 
-    content: '<p>Reach out to us at our main campus in Mardan Cantt. Phone: 0937-867788</p>' 
-  },
-];
-
-export function generateStaticParams() {
-  return pages.map((page) => ({
-    slug: page.slug,
-  }));
-}
-
-export default function Page({ params }: { params: { slug: string } }) {
-  const page = pages.find((p) => p.slug === params.slug);
+// Update the type signature to Expect a Promise, add 'async', and await the params
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params; // Await the params here!
+  const page = pages.find((p) => p.slug === resolvedParams.slug);
 
   if (!page) {
     notFound();
