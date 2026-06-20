@@ -3,9 +3,9 @@ import { notFound } from 'next/navigation';
 
 // 1. The data array MUST remain outside and above the component
 const posts = [
-  { slug: 'merit-list-2026', title: 'Merit List 2026 Published', date: 'June 15, 2026', category: 'Notice', content: '<p>The first merit list for the 2026 pre-medical and pre-engineering batches is now available. Please check the college notice board.</p>' },
-  { slug: 'summer-vacations', title: 'Summer Vacations Schedule', date: 'June 10, 2026', category: 'Schedule', content: '<p>Please be informed that the college will observe summer vacations starting from next week. Classes will resume in August.</p>' },
-  { slug: 'sports-week-winners', title: 'Sports Week 2026 Winners', date: 'May 25, 2026', category: 'News', content: '<p>Congratulations to Jinnah House for securing the first position in the annual sports week.</p>' },
+  { slug: 'strict-action-indiscipline', title: 'Strict action against indiscipline', date: '20 June 15, 2026', category: 'Notice', content: '<p>The college administration has decided to take strict action against any form of indiscipline...</p>' },
+  { slug: 'summer-vacations', title: 'Summer Vacations Schedule', date: '21 May, 2026', category: 'Schedule', content: '<p>Please be informed that the college will observe summer vacations starting from 25 May. Classes will resume in August.</p>' },
+  { slug: 'sports-week-winners', title: 'Sports Week 2026 Winners', date: '04 May, 2026', category: 'News', content: '<p>Congratulations to Jinnah House for securing the first position in the annual sports week.</p>' },
 ];
 
 export function generateStaticParams() {
