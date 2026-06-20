@@ -1,8 +1,22 @@
-// fgbicmc-main/app/posts/[slug]/page.tsx
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
-// Update the type signature to Expect a Promise, add 'async', and await the params
+// 1. The data array MUST remain outside and above the component
+const posts = [
+  { slug: 'merit-list-2026', title: 'Merit List 2026 Published', date: 'June 15, 2026', category: 'Notice', content: '<p>The first merit list for the 2026 pre-medical and pre-engineering batches is now available. Please check the college notice board.</p>' },
+  { slug: 'summer-vacations', title: 'Summer Vacations Schedule', date: 'June 10, 2026', category: 'Schedule', content: '<p>Please be informed that the college will observe summer vacations starting from next week. Classes will resume in August.</p>' },
+  { slug: 'sports-week-winners', title: 'Sports Week 2026 Winners', date: 'May 25, 2026', category: 'News', content: '<p>Congratulations to Jinnah House for securing the first position in the annual sports week.</p>' },
+];
+
+export function generateStaticParams() {
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+// 2. The updated async component
 export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = await params; // Await the params here!
+  const resolvedParams = await params;
   const post = posts.find((p) => p.slug === resolvedParams.slug);
 
   if (!post) {
