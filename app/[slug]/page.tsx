@@ -1,6 +1,33 @@
-// Update the type signature to Expect a Promise, add 'async', and await the params
+import { notFound } from 'next/navigation';
+
+// 1. The data array MUST remain outside and above the component
+const pages = [
+  { 
+    slug: 'about', 
+    title: 'About Us', 
+    content: '<p>Welcome to FG Boys Inter College Mardan. We are dedicated to excellence in education and discipline.</p>' 
+  },
+  { 
+    slug: 'faculty-staff', 
+    title: 'Faculty & Staff', 
+    content: '<p>Meet our dedicated teaching and administrative staff.</p>' 
+  },
+  { 
+    slug: 'contact', 
+    title: 'Contact Us', 
+    content: '<p>Reach out to us at our main campus in Mardan Cantt. Phone: 0937-867788</p>' 
+  },
+];
+
+export function generateStaticParams() {
+  return pages.map((page) => ({
+    slug: page.slug,
+  }));
+}
+
+// 2. The updated async component
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = await params; // Await the params here!
+  const resolvedParams = await params; 
   const page = pages.find((p) => p.slug === resolvedParams.slug);
 
   if (!page) {
