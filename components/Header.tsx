@@ -66,7 +66,7 @@ export default function Header() {
                 </li>
               ))}
             </ul>
-            <Link href="/staff-login" className="bg-green-700 text-white px-5 py-2 rounded shadow-lg hover:bg-green-800 transition">
+            <Link href="https://mail.google.com/a/fgbicm.edu.pk" className="bg-green-700 text-white px-5 py-2 rounded shadow-lg hover:bg-green-800 transition">
               Staff Login
             </Link>
           </div>
