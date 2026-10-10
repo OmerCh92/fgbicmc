@@ -5,7 +5,7 @@ export default function Home() {
   const announcements = [
     { id: 1, title: 'Strict action against indiscipline', excerpt: 'The college administration has decided to take strict action against any form of indiscipline...', category: 'Notice', slug: 'strict-action-indiscipline' },
     { id: 2, title: 'Summer Vacations Schedule', excerpt: 'Please be informed that the college will observe summer vacations starting from...', category: 'Schedule', slug: 'summer-vacations' },
-    { id: 3, title: 'Sports Week 2026 Winners', excerpt: 'Congratulations to Jinnah House for securing the first position in the annual sports...', category: 'News', slug: 'sports-week-winners' },
+    { id: 3, title: 'Sports Week 2025 Winners', excerpt: 'The College secures the first position in All Pakistan FGEI Quiat competition ...', category: 'News', slug: 'sports-week-winners' },
   ];
 
   return (
